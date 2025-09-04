@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GREENLIFE SUPER HEALTH FOUNDATION</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:"Arial", sans-serif; }
+    
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      line-height:1.6;
+    }
+    main { flex: 1; }
+
+    /* Navbar */
+    header { background:#2c3e50; padding:15px; color:white; position:sticky; top:0; z-index:1000; }
+    .navbar { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
+    .brand { display:flex; align-items:center; gap:10px; cursor:pointer; }
+    .brand img.logo { height:40px; width:auto; max-width:100%; }
+    .brand span { font-size:18px; font-weight:bold; color:white; }
+    .nav-links { list-style:none; display:flex; gap:20px; }
+    .nav-links a { color:white; text-decoration:none; font-weight:bold; cursor:pointer; }
+    .nav-links a.active { text-decoration:underline; }
+    .menu-toggle { display:none; font-size:28px; cursor:pointer; }
+
+    /* Hero */
+    .hero {
+      height:auto;
+      min-height:90vh;
+      background:url('https://picsum.photos/1200/800?nature') center/cover no-repeat;
+      color:white;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:20px;
+    }
+
+    /* Sections */
+    .section { padding:50px 20px; text-align:center; }
+
+    /* Buttons */
+    .btn {
+      background:#27ae60; color:white; padding:10px 20px; margin-top:15px;
+      border:none; cursor:pointer; border-radius:5px;
+      transition:background 0.3s ease, transform 0.3s ease;
+      display:inline-block; text-decoration:none;
+    }
+    .btn:hover { background:#219150; transform:scale(1.05); }
+
+    /* Projects Grid */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      margin-top: 20px;
+    }
+    .card {
+      background: #f4f4f4;
+      padding: 40px;
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      font-size: 18px;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.25);
+    }
+    @media (max-width: 768px) {
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .contact { background:#ecf0f1; }
+    .contact form { max-width:500px; margin:auto; display:flex; flex-direction:column; gap:10px; }
+
+    /* Footer */
+    footer { background:#2c3e50; color:white; text-align:center; padding:15px; }
+    .powered {
+      font-size: 14px;
+      margin-bottom: 12px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .powered .white { color: white; font-size: 14px; }
+    .powered .foundation { font-size: 16px; font-weight: bold; color: white; }
+    .powered .lemon { font-size: 16px; font-weight: bold; color: #f7f74f; }
+    .super-glow {
+      display: block;
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #000;
+      animation: glowGold 1.5s ease-in-out infinite alternate;
+    }
+
+    /* Animations */
+    .fade-in { opacity:0; transform:translateY(30px); transition:all 0.8s ease-out; }
+    .fade-in.show { opacity:1; transform:translateY(0); }
+    .hero h1, .hero p { animation:fadeSlide 1.2s ease-out forwards; }
+    @keyframes fadeSlide { from{opacity:0; transform:translateY(40px);} to{opacity:1; transform:translateY(0);} }
+
+    /* Responsive Navbar */
+    @media (max-width:768px) {
+      .nav-links { display:none; flex-direction:column; background:#34495e; position:absolute; top:60px; right:0; width:200px; padding:20px; }
+      .nav-links.active { display:flex; }
+      .menu-toggle { display:block; }
+
+      .brand { flex-direction:column; text-align:center; }
+      .brand span { font-size:14px; }
+      .brand img.logo { height:30px; }
+
+      .gallery { grid-template-columns:1fr; }
+      .what-grid { grid-template-columns:1fr; }
+      .image-text-section { flex-direction: column; }
+    }
+
+    html { scroll-behavior:smooth; }
+      
+.hero-card {
+  background: rgba(255, 255, 255, 0.85);
+  color: #2c3e50;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+  max-width: 700px;
+  margin-bottom: 20px;
+  text-align: center;
+  animation: fadeSlide 1.2s ease-out forwards;
+}
+.hero-card h1 {
+  margin-bottom: 15px;
+  font-size: 28px;
+}
+.hero-card p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+
+    /* Home Banner */
+    .home-banner {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      margin-top: 20px;
+      border-radius: 10px;
+      display: block;
+    }
+
+    /* Sub-heading tag box */
+    .sub-heading {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 8px 20px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #2c3e50;
+      background: #f1c40f;
+      border-radius: 25px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+
+    /* Image cards */
+    .card-img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .card-img:hover { transform: scale(1.05); }
+
+    .clickable-card { cursor: pointer; padding: 0; background: none; box-shadow: none; }
+
+    /* Extra Section */
+    .extra-section {
+      margin-top: 40px;
+      padding: 30px 20px;
+      background: #ecf0f1;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .extra-section h2 { margin-bottom: 15px; font-size: 26px; color: #2c3e50; }
+
+    /* Mission List */
+    .mission-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+      text-align: left;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .mission-list li {
+      margin: 12px 0;
+      padding-left: 30px;
+      position: relative;
+      font-size: 16px;
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+    .mission-list li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #27ae60;
+      font-weight: bold;
+    }
+
+    /* Gallery of images */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover { transform: scale(1.05); }
+
+    /* What We Do */
+    .what-we-do {
+      margin-top: 50px;
+      padding: 40px 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    }
+    .what-we-do h2 { font-size: 28px; margin-bottom: 25px; color: #2c3e50; text-transform: uppercase; letter-spacing: 1.5px; }
+    .what-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .what-card {
+      background: #ecf0f1;
+      padding: 20px;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+    .what-card h3 { margin-bottom: 10px; color: #27ae60; }
+    .what-card p { color: #333; font-size: 15px; line-height: 1.6; }
+    .what-card:hover { transform: translateY(-5px); box-shadow: 0px 6px 15px rgba(0,0,0,0.2); }
+
+    /* Orange icons */
+    .icon { font-size: 40px; color: orange; margin-bottom: 10px; display: block; }
+
+    /* New Bank/Glowing Section */
+    .image-text-section {
+      margin-top: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      padding: 20px;
+      text-align: center;
+    }
+    .side-img {
+      max-width: 220px;
+      border-radius: 12px;
+      box-shadow: 0px 6px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+    .side-img:hover { transform: scale(1.05); }
+    .middle-text {
+      max-width: 500px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #000;
+      line-height: 1.8;
+      text-align: center;
+      animation: glowGold 1.5s ease-in-out infinite alternate;
+    }
+    @keyframes glowGold {
+      from {
+        text-shadow: 0 0 5px #f1c40f, 0 0 10px #f39c12, 0 0 20px #e67e22;
+        color: #000;
+      }
+      to {
+        text-shadow: 0 0 15px #f1c40f, 0 0 30px #f39c12, 0 0 45px #e67e22, 0 0 60px #f1c40f;
+        color: #000;
+      }
+    }
+
+    /* Project list bullets */
+    .project-list {
+      list-style: none;
+      padding: 0;
+      margin: 15px 0;
+      text-align: left;
+    }
+    .project-list li {
+      margin: 10px 0;
+      padding-left: 30px;
+      position: relative;
+      font-size: 16px;
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+    .project-list li::before {
+      content: "⭐";
+      position: absolute;
+      left: 0;
+      font-size: 18px;
+      font-weight: bold;
+      background: linear-gradient(45deg, purple, gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar">
+      <div class="brand" onclick="loadPage('home')">
+        <img src="logo.png" alt="NGO Logo" class="logo">
+        <span>GREENLIFE SUPERHEALTH FOUNDATION</span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a onclick="loadPage('home')" id="link-home">Home</a></li>
+        <li><a onclick="loadPage('about')" id="link-about">About</a></li>
+        <li><a onclick="loadPage('projects')" id="link-projects">Projects</a></li>
+        <li><a onclick="loadPage('contact')" id="link-contact">Contact</a></li>
+      </ul>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </nav>
+  </header>
+
+  <!-- Dynamic Content -->
+  <main id="content"></main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="powered">
+      <span class="white">Powered by</span> 
+      <span class="lemon">Greenlife SuperHealth Foundation</span> in collaboration with 
+      <span class="lemon">Greenlife Herbal Network Ltd.</span>
+      <br>
+      <span class="super-glow">SUPER MEMBERS!!! IN THE SUPER HOUSE..........</span>
+    </div>
+    <p>© 2025 GREENLIFE SUPERHEALTH FOUNDATION. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+
+    const pages = {
+      home: `
+        <section class="hero fade-in">
+            <div class="hero-card">
+          <h1>Empowering Communities for a Healthier Future 🌍</h1>
+          <p>Welcome to the Greenlife Superhealth Foundation.</p>
+            <p>We are dedicated to nurturing a better world through sustainable practices, community support, and empowering education. </p> </div>
+          <a onclick="loadPage('contact')" class="btn">Contact Now</a>
+          <img src="p12.png" alt="Greenlife Banner" class="home-banner fade-in">
+
+          <h2 class="sub-heading fade-in">PRESENTS</h2>
+          <div class="project-grid fade-in">
+            <div class="card clickable-card" onclick="loadPage('projects')">
+              <img src="p13.png" alt="Go to Projects" class="card-img">
+            </div>
+            <div class="card clickable-card" onclick="loadPage('projects')">
+              <img src="p15.png" alt="Go to Projects" class="card-img">
+            </div>
+          </div>
+
+          <!-- Extra section only on home -->
+          <div class="extra-section fade-in">
+            <h2>Our Mission</h2>
+            <ul class="mission-list">
+              <li>Creating awareness on prevention and natural approaches to diseases.</li>
+              <li>Improving health and lifestyle of the vulnerable.</li>
+              <li>Empowering women, children, and the elderly through support programs.</li>
+            </ul>
+            <a onclick="loadPage('about')" class="btn">Learn More</a>
+
+            <!-- New Gallery Section -->
+            <div class="gallery fade-in">
+              <img src="p1.png" alt="Mission Image 1">
+              <img src="p5.png" alt="Mission Image 2">
+              <img src="p2.png" alt="Mission Image 3">
+            </div>
+
+            <!-- What We Do Section -->
+            <div class="what-we-do fade-in">
+              <h2>What We Do</h2>
+              <div class="what-grid">
+                <div class="what-card">
+                  <span class="icon">🩺</span>
+                  <h3>Community Wellness</h3>
+                  <p>Creating awareness on prevention and natural approach to different diseases.</p>
+                </div>
+                <div class="what-card">
+                  <span class="icon">🤝</span>
+                  <h3>Community Support</h3>
+                  <p>Empowerment/Financial Support to vulnerable groups such as women, children, and the elderly with programs that improve lives.</p>
+                </div>
+                <div class="what-card">
+                  <span class="icon">🌱</span>
+                  <h3>Environmental Care</h3>
+                  <p>Promoting clean environments, tree planting, and sustainable living practices.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- New Glowing Bank Section -->
+            <div class="image-text-section fade-in">
+              <img src="p6.png" alt="Side Image Left" class="side-img">
+              <div class="middle-text">
+                Be part of this Super healthy lifestyle Empowerment and Natural solutions life Coaching by our Super Natural health Professionals.
+              </div>
+              <img src="p7.png" alt="Side Image Right" class="side-img">
+            </div>
+          </div>
+        <a onclick="loadPage('contact')" class="btn">Contact Now</a>
+        </section>
+      `,
+      about: `
+        <section class="section fade-in">
+          <h2>About Us</h2>
+          <p>Greenlife Super health foundation is a non-governmental organization set up by Super Members of Greenlife Herbal Network Ltd. Giving back to Society.</p><br>
+          <p>Greenlife Superhealth Foundation champions natural health through education, research, and community initiatives. We collaborate with local leaders and partners to provide sustainable solutions that elevate wellbeing and economic resilience.</p>
+          <img src="p8.png" alt="About Image" class="home-banner fade-in">
+        </section>
+      `,
+      projects: `
+        <section class="section projects fade-in">
+          <h2>Our Projects</h2>
+          <div class="project-grid">
+            <div class="card">
+              <h3>NATURAL HEALTH AWARENESS CREATION</h3>
+              <ul class="project-list">
+                <li>Free super health talks.</li>
+                <li>Improving healthy and wealthy lifestyle.</li>
+                <li>Grants.</li>
+                <li>And much more.......</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>EMPOWERMENT PROGRAM</h3>
+              <ul class="project-list">
+                <li>Empowering local communities to take control of their health.</li>
+                <li>Empowering women and youth.</li>
+                <li>Installations of purified water systems.</li>
+                <li>Awarding Scholarships.</li>
+                <li>And much more.......</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      `,
+      contact: `
+         <section class="section contact fade-in">
+          <h2>Contact Us</h2>
+          <p>Have questions or want to partner with us? We’d love to hear from you.</p>
+          <p>@ No.18 Adebayo Crescent Ago by Ago Roundabout Lagos State, Nigeria.</p>
+          <br>
+          <h2>Connect with us</h2>
+          <p>
+            You can also connect with us on WhatsApp 
+            <a href="https://wa.me/23470602884" target="_blank">+23470602884</a>, 
+            <a href="https://wa.me/2348037188332" target="_blank">+2348037188332</a>.
+          </p>
+        </section>
+      `
+    };
+
+    function loadPage(page) {
+      const content = document.getElementById("content");
+      content.innerHTML = pages[page];
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      document.querySelectorAll('.fade-in').forEach(el => {
+        setTimeout(() => el.classList.add('show'), 100);
+      });
+
+      document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
+      document.getElementById(`link-${page}`).classList.add('active');
+
+      document.getElementById("navLinks").classList.remove("active");
+    }
+
+    window.onload = () => loadPage('home');
+  </script>
+</body>
+</html>
