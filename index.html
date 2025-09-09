@@ -142,8 +142,15 @@
   font-size: 16px;
   margin-bottom: 10px;
 }
-
-
+    /* Fine */
+    .fine {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      margin-top: 20px;
+      border-radius: 10px;
+      display: block;
+}
     /* Home Banner */
     .home-banner {
       width: 100%;
@@ -168,7 +175,43 @@
       letter-spacing: 2px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.2);
     }
-
+    /* f-fine */
+    .f-fine {
+      width: 100%;
+      height: 200px;
+        object-fit: cover;
+      border-radius: 10px;
+      display: block;
+      transition: transform 0.3s ease;
+  }
+      
+    /* G-fine */
+    .g-fine {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      margin-top: 20px;
+      border-radius: 10px;
+      display: block;
+  }
+       /* h-fine */
+    .h-fine {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      margin-top: 20px;
+      border-radius: 10px;
+      display: block;
+  }
+       /* i-fine */
+    .i-fine {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      margin-top: 20px;
+      border-radius: 10px;
+      display: block;
+  }
     /* Image cards */
     .card-img {
       width: 100%;
@@ -279,6 +322,7 @@
       box-shadow: 0px 6px 15px rgba(0,0,0,0.2);
       transition: transform 0.3s ease;
     }
+
     .side-img:hover { transform: scale(1.05); }
     .middle-text {
       max-width: 500px;
@@ -299,7 +343,34 @@
         color: #000;
       }
     }
-
+ /* About Ban */
+    .about-ban {
+      width: 100%;
+      max-height: auto;
+      object-fit: cover;
+      margin-top: 20px;
+      border-radius: 10px;
+      display: block;
+        
+    }
+    /* About Banner */
+    .about-banner {
+      width: 100%;
+      max-height:auto;
+      object-fit:cover;
+      margin-top: 10px;
+      border-radius: 2px;
+      display: block;
+        
+    }
+    /* Project two */
+    .project-two {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      margin-top: 20px;
+      }
+      
     /* Project list bullets */
     .project-list {
       list-style: none;
@@ -371,8 +442,12 @@
             <div class="hero-card">
           <h1>Empowering Communities for a Healthier Future 🌍</h1>
           <p>Welcome to the Greenlife Superhealth Foundation.</p>
-            <p>We are dedicated to nurturing a better world through sustainable practices, community support, and empowering education. </p> </div>
+            <p>We are dedicated to nurturing a better world through sustainable practices, community support, and empowering education. </p> 
+            <img src="c3.jpeg" alt="fine" class="fine fade-in">
+      </div>
           <a onclick="loadPage('contact')" class="btn">Contact Now</a>
+    <div class="project-grid fade-in">
+          </div>
           <img src="p12.png" alt="Greenlife Banner" class="home-banner fade-in">
 
           <h2 class="sub-heading fade-in">PRESENTS</h2>
@@ -405,21 +480,33 @@
             <!-- What We Do Section -->
             <div class="what-we-do fade-in">
               <h2>What We Do</h2>
+            <div>
+              <img src="c10.jpeg" alt="G-fine" class="G-fine fade-in">
+            </div>
               <div class="what-grid">
                 <div class="what-card">
                   <span class="icon">🩺</span>
                   <h3>Community Wellness</h3>
                   <p>Creating awareness on prevention and natural approach to different diseases.</p>
+            <div>
+              <img src="c12.jpeg" alt="h-fine" class="h-fine fade-in">
+            </div>
                 </div>
                 <div class="what-card">
                   <span class="icon">🤝</span>
                   <h3>Community Support</h3>
                   <p>Empowerment/Financial Support to vulnerable groups such as women, children, and the elderly with programs that improve lives.</p>
+            <div>
+              <img src="c14.jpeg" alt="h-fine" class="h-fine fade-in">
+            </div>
                 </div>
                 <div class="what-card">
                   <span class="icon">🌱</span>
                   <h3>Environmental Care</h3>
                   <p>Promoting clean environments, tree planting, and sustainable living practices.</p>
+            <div>
+              <img src="c15.jpeg" alt="h-fine" class="h-fine fade-in">
+            </div>
                 </div>
               </div>
             </div>
@@ -440,7 +527,20 @@
         <section class="section fade-in">
           <h2>About Us</h2>
           <p>Greenlife Super health foundation is a non-governmental organization set up by Super Members of Greenlife Herbal Network Ltd. Giving back to Society.</p><br>
-          <p>Greenlife Superhealth Foundation champions natural health through education, research, and community initiatives. We collaborate with local leaders and partners to provide sustainable solutions that elevate wellbeing and economic resilience.</p>
+        <div class= "project-two">
+        <div class=" hero-card about-ban fade-in">
+              <img src="c5.jpeg" alt="about-ban" class="about-ban fade-in">
+            </div>
+            <div class="hero-card about-banner fade-in ">
+              <img src="c1.jpeg" alt="about-banner" class="about-banner">
+            </div>
+            </div>
+            <br> 
+          <p>Greenlife Superhealth Foundation champions natural health through education, research, and community initiatives. We collaborate with local leaders and partners to provide sustainable solutions that elevate wellbeing and economic resilience.</p><br>
+        <div class="contain">
+        <img src="p3.png" alt="side image middle" class="side image middle fade-in">
+        </div>
+            <br>
           <img src="p8.png" alt="About Image" class="home-banner fade-in">
         </section>
       `,
@@ -456,6 +556,9 @@
                 <li>Grants.</li>
                 <li>And much more.......</li>
               </ul>
+        <div>
+              <img src="c7.jpeg" alt="h-fine" class="h-fine fade-in">
+            </div>
             </div>
             <div class="card">
               <h3>EMPOWERMENT PROGRAM</h3>
@@ -466,7 +569,11 @@
                 <li>Awarding Scholarships.</li>
                 <li>And much more.......</li>
               </ul>
+            <div>
+              <img src="c11.jpeg" alt="h-fine" class="h-fine fade-in">
             </div>
+            </div>
+        
           </div>
         </section>
       `,
@@ -474,7 +581,7 @@
          <section class="section contact fade-in">
           <h2>Contact Us</h2>
           <p>Have questions or want to partner with us? We’d love to hear from you.</p>
-          <p>@ No.18 Adebayo Crescent Ago by Ago Roundabout Lagos State, Nigeria.</p>
+          <p>@ No.18 Adebayo Crescent Ago by Ago Roundabout, Okota-Isolo Lagos State, Nigeria.</p>
           <br>
           <h2>Connect with us</h2>
           <p>
@@ -505,4 +612,3 @@
   </script>
 </body>
 </html>
-
