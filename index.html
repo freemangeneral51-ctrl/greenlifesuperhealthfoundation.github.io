@@ -396,6 +396,58 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+      
+      NEW CODES     
+      /* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Gallery container */
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  padding: 40px;
+  background-color: #f8f8f8;
+}
+
+/* Each image container */
+.gallery-item {
+  overflow: hidden;
+  border-radius: 15px;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+/* Image styling */
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.5s ease, opacity 0.3s ease;
+}
+
+/* Hover effects */
+.gallery-item:hover {
+  transform: translateY(-8px);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+/* Optional: make it look sleek on dark mode */
+@media (prefers-color-scheme: dark) {
+  .image-gallery {
+    background-color: #121212;
+  }
+}
+      
   </style>
 </head>
 <body>
@@ -509,7 +561,7 @@
             </div>
                 </div>
               </div>
-            </div>
+           
 
             <!-- New Glowing Bank Section -->
             <div class="image-text-section fade-in">
@@ -528,11 +580,11 @@
           <h2>About Us</h2>
           <p>Greenlife Super health foundation is a non-governmental organization set up by Super Members of Greenlife Herbal Network Ltd. Giving back to Society.</p><br>
         <div class= "project-two">
-        <div class=" hero-card about-ban fade-in">
-              <img src="c5.jpeg" alt="about-ban" class="about-ban fade-in">
+        <div class=" hero-cards ">
+              <img src="abt.jpg" alt="about-ban" class="about-ban fade-in">
             </div>
-            <div class="hero-card about-banner fade-in ">
-              <img src="c1.jpeg" alt="about-banner" class="about-banner">
+            <div class="hero-cards about-banner fade-in ">
+              <img src="abt9.jpeg" alt="about-banner" class="about-banner">
             </div>
             </div>
             <br> 
@@ -551,7 +603,7 @@
             <div class="card">
               <h3>NATURAL HEALTH AWARENESS CREATION</h3>
               <ul class="project-list">
-                <li>Free super health talks.</li>
+                <li>Free health talks.</li>
                 <li>Improving healthy and wealthy lifestyle.</li>
                 <li>Grants.</li>
                 <li>And much more.......</li>
@@ -576,6 +628,32 @@
         
           </div>
         </section>
+
+ <div class="hero-cards">
+        <div class="gallery-item" >
+            <img src="a1.png" alt="Gallery Image 1">
+        </div>
+    
+    </div>
+    <section class="image-gallery">
+
+  <div class="gallery-item">
+    <img src="am.png" alt="Gallery Image 2">
+  </div>
+  <div class="gallery-item">
+    <img src="a2.png" alt="Gallery Image 3">
+  </div>
+  <div class="gallery-item">
+    <img src="abt4.png" alt="Gallery Image 4">
+  </div>
+  <div class="gallery-item">
+    <img src="abt7.jpeg" alt="Gallery Image 5">
+  </div>
+  <div class="gallery-item">
+    <img src="abt8.jpeg" alt="Gallery Image 6">
+  </div>
+</section>
+
       `,
       contact: `
          <section class="section contact fade-in">
@@ -586,7 +664,7 @@
           <h2>Connect with us</h2>
           <p>
             You can also connect with us on WhatsApp 
-            <a href="https://wa.me/23470602884" target="_blank">+23470602884</a>, 
+            <a href="https://wa.me/23470602884" target="_blank">+2347060402884.</a>, 
             <a href="https://wa.me/2348037188332" target="_blank">+2348037188332</a>.
           </p>
         </section>
@@ -596,7 +674,7 @@
     function loadPage(page) {
       const content = document.getElementById("content");
       content.innerHTML = pages[page];
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: "smooth" });
 
       document.querySelectorAll('.fade-in').forEach(el => {
         setTimeout(() => el.classList.add('show'), 100);
